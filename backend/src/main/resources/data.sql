@@ -19,3 +19,8 @@ INSERT INTO tb_course (name, img_uri, img_gray_uri) VALUES ('Bootcamp HTML', 'ht
 
 INSERT INTO tb_offer(edition, start_moment, end_moment, course_id) VALUES ('1.0',TIMESTAMP WITH TIME ZONE '2020-11-20T03:00:00Z' , TIMESTAMP WITH TIME ZONE '2021-07-13T20:50:07Z', 1 );
 INSERT INTO tb_offer(edition, start_moment, end_moment, course_id) VALUES ('2.0',TIMESTAMP WITH TIME ZONE '2021-12-20T03:00:00Z' , TIMESTAMP WITH TIME ZONE '2022-07-13T20:50:07Z', 1 );
+
+
+INSERT INTO tb_NOTIFICATION (text, moment, read, route, user_id ) VALUES ('Nova oferta', TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', FALSE, '123', 1 );
+INSERT INTO tb_NOTIFICATION (text, moment, read, route,  user_id ) VALUES ('Nova atualização', TIMESTAMP WITH TIME ZONE '2021-07-7T03:00:00Z', FALSE, '123', 1 );
+INSERT INTO tb_NOTIFICATION (text, moment, read, route,  user_id ) VALUES ('Nova atualização', TIMESTAMP WITH TIME ZONE '2021-07-7T03:00:00Z', TRUE, '123', 1 );
