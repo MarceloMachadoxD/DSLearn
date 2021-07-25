@@ -25,6 +25,8 @@ INSERT INTO tb_resource(title, description, position, img_uri, type, offer_id) V
 INSERT INTO tb_resource(title, description, position, img_uri, type, offer_id) VALUES ('Lives', 'Aulas ao vivo', 3, 'https://cdn.pixabay.com/photo/2019/12/29/19/40/online-4727942_960_720.jpg', 0, 1);
 
 INSERT INTO tb_section (title, description, img_uri, position, resource_id, prerequisite_id ) VALUES  ('capitulo 1', 'introducao','https://cdn.pixabay.com/photo/2019/12/29/19/40/online-4727942_960_720.jpg', 1, 1, null );
+INSERT INTO tb_section (title, description, img_uri, position, resource_id, prerequisite_id ) VALUES  ('capitulo 2', 'indo','https://cdn.pixabay.com/photo/2019/12/29/19/40/online-4727942_960_720.jpg', 1, 2, 1 );
+INSERT INTO tb_section (title, description, img_uri, position, resource_id, prerequisite_id ) VALUES  ('capitulo 3', 'chegando','https://cdn.pixabay.com/photo/2019/12/29/19/40/online-4727942_960_720.jpg', 1, 3, 2 );
 
 INSERT INTO tb_NOTIFICATION (text, moment, read, route, user_id ) VALUES ('Nova oferta', TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', FALSE, '123', 1 );
 INSERT INTO tb_NOTIFICATION (text, moment, read, route,  user_id ) VALUES ('Nova atualização', TIMESTAMP WITH TIME ZONE '2021-07-7T03:00:00Z', FALSE, '123', 1 );
