@@ -28,6 +28,10 @@ INSERT INTO tb_section (title, description, img_uri, position, resource_id, prer
 INSERT INTO tb_section (title, description, img_uri, position, resource_id, prerequisite_id ) VALUES  ('capitulo 2', 'indo','https://cdn.pixabay.com/photo/2019/12/29/19/40/online-4727942_960_720.jpg', 1, 2, 1 );
 INSERT INTO tb_section (title, description, img_uri, position, resource_id, prerequisite_id ) VALUES  ('capitulo 3', 'chegando','https://cdn.pixabay.com/photo/2019/12/29/19/40/online-4727942_960_720.jpg', 1, 3, 2 );
 
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, avaliable, only_update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', null, TRUE, FALSE);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, avaliable, only_update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', null, TRUE, FALSE);
+
+
 INSERT INTO tb_NOTIFICATION (text, moment, read, route, user_id ) VALUES ('Nova oferta', TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', FALSE, '123', 1 );
 INSERT INTO tb_NOTIFICATION (text, moment, read, route,  user_id ) VALUES ('Nova atualização', TIMESTAMP WITH TIME ZONE '2021-07-7T03:00:00Z', FALSE, '123', 1 );
 INSERT INTO tb_NOTIFICATION (text, moment, read, route,  user_id ) VALUES ('Nova atualização', TIMESTAMP WITH TIME ZONE '2021-07-7T03:00:00Z', TRUE, '123', 1 );
