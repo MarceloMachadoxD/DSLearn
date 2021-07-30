@@ -43,7 +43,9 @@ INSERT INTO tb_content (id, text_content, video_uri) VALUES (3, '123', 'http');
 INSERT INTO tb_lesson (title, position, section_id) VALUES ('Tarefa cap-1', 4, 1);
 INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (4, 'resolve ai', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2021-06-26T03:00:00Z' );
 
-
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (3, 1, 1);
 
 
 INSERT INTO tb_NOTIFICATION (text, moment, read, route, user_id ) VALUES ('Nova oferta', TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', FALSE, '123', 1 );
