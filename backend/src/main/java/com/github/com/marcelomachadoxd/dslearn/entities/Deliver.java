@@ -27,16 +27,29 @@ public class Deliver implements Serializable {
 
     private Status deliverStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
+
+    @ManyToOne
+    @JoinColumns({
+        @JoinColumn(name = "offer_id"),
+        @JoinColumn(name = "user_id")
+    })
+    private Enrollment enrollment;
+
     public Deliver() {
     }
 
-    public Deliver(Long id, String uri, String feedback, Instant moment, Integer correctCount, Status deliverStatus) {
+    public Deliver(Long id, String uri, String feedback, Instant moment, Integer correctCount, Status deliverStatus, Lesson lesson, Enrollment enrollment) {
         this.id = id;
         this.uri = uri;
         this.feedback = feedback;
         this.moment = moment;
         this.correctCount = correctCount;
         this.deliverStatus = deliverStatus;
+        this.lesson = lesson;
+        this.enrollment = enrollment;
     }
 
     public Long getId() {
@@ -85,6 +98,22 @@ public class Deliver implements Serializable {
 
     public void setDeliverStatus(Status deliverStatus) {
         this.deliverStatus = deliverStatus;
+    }
+
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(Lesson lesson) {
+        this.lesson = lesson;
+    }
+
+    public Enrollment getEnrollment() {
+        return enrollment;
+    }
+
+    public void setEnrollment(Enrollment enrollment) {
+        this.enrollment = enrollment;
     }
 
     @Override
