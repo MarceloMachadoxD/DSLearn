@@ -31,6 +31,20 @@ INSERT INTO tb_section (title, description, img_uri, position, resource_id, prer
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, avaliable, only_update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', null, TRUE, FALSE);
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, avaliable, only_update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', null, TRUE, FALSE);
 
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula-1 cap-1', 1, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (1, '123', 'http');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula-2 cap-1', 2, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (2, '123', 'http');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula-2 cap-1', 3, 1);
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (3, '123', 'http');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Tarefa cap-1', 4, 1);
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (4, 'resolve ai', 5, 4, 1.0, TIMESTAMP WITH TIME ZONE '2021-06-26T03:00:00Z' );
+
+
+
 
 INSERT INTO tb_NOTIFICATION (text, moment, read, route, user_id ) VALUES ('Nova oferta', TIMESTAMP WITH TIME ZONE '2021-06-20T03:00:00Z', FALSE, '123', 1 );
 INSERT INTO tb_NOTIFICATION (text, moment, read, route,  user_id ) VALUES ('Nova atualização', TIMESTAMP WITH TIME ZONE '2021-07-7T03:00:00Z', FALSE, '123', 1 );
