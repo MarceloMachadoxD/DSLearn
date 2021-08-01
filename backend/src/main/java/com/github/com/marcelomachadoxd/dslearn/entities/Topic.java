@@ -2,9 +2,7 @@ package com.github.com.marcelomachadoxd.dslearn.entities;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_topic")
@@ -38,6 +36,14 @@ public class Topic {
     @ManyToOne
     @JoinColumn(name = "lesson_id")
     private Lesson lesson;
+
+    @OneToMany(mappedBy = "topic")
+    private List<Reply> replies = new ArrayList<>();
+
+
+    @ManyToOne
+    @JoinColumn(name = "reply_id")
+    private Reply answer;
 
 
 
@@ -112,6 +118,18 @@ public class Topic {
 
     public void setLesson(Lesson lesson) {
         this.lesson = lesson;
+    }
+
+    public Reply getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Reply answer) {
+        this.answer = answer;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
     }
 
     @Override
