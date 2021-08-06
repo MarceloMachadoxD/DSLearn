@@ -1,7 +1,9 @@
 package com.github.com.marcelomachadoxd.dslearn.resources.exceptions;
 
 import com.github.com.marcelomachadoxd.dslearn.services.exceptions.DatabaseException;
+import com.github.com.marcelomachadoxd.dslearn.services.exceptions.ForbiddenException;
 import com.github.com.marcelomachadoxd.dslearn.services.exceptions.ResourceNotFoundException;
+import com.github.com.marcelomachadoxd.dslearn.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -57,6 +59,20 @@ public class ResourceExceptionHandler {
         }
 
         return ResponseEntity.status(status).body(standardError);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException e, HttpServletRequest request) {
+        OAuthCustomError oAuthCustomError = new OAuthCustomError("Forbidden", e.getMessage());
+
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(oAuthCustomError);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException e, HttpServletRequest request) {
+        OAuthCustomError oAuthCustomError = new OAuthCustomError("Unauthorized", e.getMessage());
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(oAuthCustomError);
     }
 
 }
