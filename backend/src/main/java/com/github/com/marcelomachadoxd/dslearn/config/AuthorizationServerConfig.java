@@ -1,6 +1,7 @@
 package com.github.com.marcelomachadoxd.dslearn.config;
 
 import com.github.com.marcelomachadoxd.dslearn.components.JwtTokenEnhancer;
+import com.github.com.marcelomachadoxd.dslearn.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -45,6 +46,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private JwtTokenEnhancer tokenEnhancer;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
@@ -57,7 +61,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .secret(passwordEncoder.encode(clientSecret))
             .scopes("read", "write")
             .authorizedGrantTypes("password")
-            .accessTokenValiditySeconds(jwtDuration);
+            .accessTokenValiditySeconds(jwtDuration)
+            .authorizedGrantTypes("password", "refresh_token")
+            .accessTokenValiditySeconds(jwtDuration)
+            .refreshTokenValiditySeconds(jwtDuration)
+        ;
     }
 
     @Override
@@ -68,6 +76,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.authenticationManager(authenticationManager)
             .tokenStore(tokenStore)
             .accessTokenConverter(accessTokenConverter)
-            .tokenEnhancer(chain);
+            .tokenEnhancer(chain)
+            .userDetailsService(userService)
+        ;
     }
 }
